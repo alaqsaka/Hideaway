@@ -18,11 +18,12 @@ export default function Hero(props) {
   return (
     <section className="container pt-4">
       <div className="row align-items-center">
-        <div className="col-auto pr-5" style={{ width: 452 }}>
-          <h1 className="h2 font-weight-bold line-height-1 mb-3">
+        <div className="col-auto pr-5" style={{ width: 530 }}>
+          <h1 className="font-weight-bold line-height-1 mb-3">
             Start your vacation,
             <br />
-            hide from the noise of work
+            hide from the noise <br />
+            of work
           </h1>
           <p className="mb-5 font-weight-light text-gray-500 w-75">
             We guarantee the peace of your vacation by providing accommodation
@@ -39,7 +40,7 @@ export default function Hero(props) {
           </Button>
 
           <div className="row mt-5">
-            <div className="col-auto">
+            <div className="col-auto" style={{ marginRight: 35 }}>
               <img
                 width="36"
                 height="36"
@@ -54,7 +55,7 @@ export default function Hero(props) {
               </h6>
             </div>
 
-            <div className="col-auto">
+            <div className="col-auto" style={{ marginRight: 35 }}>
               <img
                 width="36"
                 height="36"
@@ -80,6 +81,23 @@ export default function Hero(props) {
                 <span className="text-gray-500 font-weight-light">Cities</span>
               </h6>
             </div>
+          </div>
+        </div>
+
+        <div className="col-6 pl-5">
+          <div style={{ width: 520, height: 410 }}>
+            <img
+              src={ImageHero}
+              alt=""
+              className="img-fluid position-absolute"
+              style={{ margin: "-30px 0 0 -30px", zIndex: 1 }}
+            />
+            <img
+              src={ImageHero_}
+              alt=""
+              className="img-fluid position-absolute"
+              style={{ margin: "0 -15px -15px 0" }}
+            />
           </div>
         </div>
       </div>
