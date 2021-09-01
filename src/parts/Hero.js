@@ -15,6 +15,11 @@ export default function Hero(props) {
     });
   }
 
+  function formattingNumber(number) {
+    const numberNewFormat = new Intl.NumberFormat("id-ID");
+    return numberNewFormat.format(number);
+  }
+
   return (
     <section className="container pt-4">
       <div className="row align-items-center">
@@ -22,10 +27,12 @@ export default function Hero(props) {
           <h1 className="font-weight-bold line-height-1 mb-3">
             Start your vacation,
             <br />
-            hide from the noise <br />
-            of work
+            hide from busy work
           </h1>
-          <p className="mb-5 font-weight-light text-gray-500 w-75">
+          <p
+            className="mb-4 font-weight-light text-gray-500 w-75"
+            style={{ lineHeight: "170%" }}
+          >
             We guarantee the peace of your vacation by providing accommodation
             according to your needs and are willing to create an unforgettable
             experience
@@ -39,7 +46,7 @@ export default function Hero(props) {
             Show Me Now
           </Button>
 
-          <div className="row mt-5">
+          <div className="row" style={{ marginTop: 80 }}>
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
                 width="36"
@@ -48,7 +55,7 @@ export default function Hero(props) {
                 alt={`${props.data.travelers} Travelers`}
               />
               <h6 className="mt-3">
-                {props.data.travelers}{" "}
+                {formattingNumber(props.data.travelers)}{" "}
                 <span className="text-gray-500 font-weight-light">
                   Travelers
                 </span>
@@ -63,7 +70,7 @@ export default function Hero(props) {
                 alt={`${props.data.treasures} Treasures`}
               />
               <h6 className="mt-3">
-                {props.data.treasures}{" "}
+                {formattingNumber(props.data.treasures)}{" "}
                 <span className="text-gray-500 font-weight-light">
                   Treasures
                 </span>
@@ -77,7 +84,7 @@ export default function Hero(props) {
                 alt={`${props.data.cities} Cities`}
               />
               <h6 className="mt-3">
-                {props.data.cities}{" "}
+                {formattingNumber(props.data.cities)}{" "}
                 <span className="text-gray-500 font-weight-light">Cities</span>
               </h6>
             </div>
