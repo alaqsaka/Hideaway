@@ -6,6 +6,7 @@ import IconCities from "assets/images/icons/ic_cities.svg";
 import IconTraveler from "assets/images/icons/ic_traveler.svg";
 import IconTreasure from "assets/images/icons/ic_treasure.svg";
 import Button from "elements/button";
+import formattingNumber from "utils/formatNumber";
 
 export default function Hero(props) {
   function showMostPicked() {
@@ -13,11 +14,6 @@ export default function Hero(props) {
       top: props.refMostPicked.current.offsetTop - 30,
       behavior: "smooth",
     });
-  }
-
-  function formattingNumber(number) {
-    const numberNewFormat = new Intl.NumberFormat("id-ID");
-    return numberNewFormat.format(number);
   }
 
   return (
