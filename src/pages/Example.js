@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Breadcrumb from "elements/Breadcrumb";
-import { InputDate } from "elements/Form";
+//import { InputDate } from "elements/Form";
 
 export default class Example extends Component {
   render() {
