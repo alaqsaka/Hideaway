@@ -1,4 +1,5 @@
 import "assets/scss/style.scss";
+import Checkout from "pages/Checkout";
 import DetailsPage from "pages/DetailsPage";
 import Example from "pages/Example";
 import LandingPage from "pages/LandingPage";
@@ -11,6 +12,7 @@ function App() {
         <Route exact path="/" component={LandingPage}></Route>
         <Route exact path="/properties/:id" component={DetailsPage} />
         <Route exac path="/example" component={Example} />
+        <Route exact path="/checkout" component={Checkout} />
       </Router>
     </div>
   );
