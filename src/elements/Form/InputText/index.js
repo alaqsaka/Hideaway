@@ -20,7 +20,52 @@ export default function Text(props) {
   if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (type === "tel") pattern = "[0-9*]";
 
-  return <div></div>;
+  const onChange = (event) => {
+    const target = {
+      target: {
+        name: name,
+        value: event.target.value,
+      },
+    };
+
+    if (type === "email") {
+      if (!pattern.test(event.target.value)) setHasError(errorResponse);
+      else setHasError(null);
+    }
+
+    if (type === "tel") {
+      if (event.target.validity.valid) props.onChange(target);
+    } else {
+      props.onChange(target);
+    }
+  };
+
+  return (
+    <div className={["input-text mb-3", outerClassName.join(" ")]}>
+      <div className="input-group">
+        {prepend && (
+          <div className="input-group-prepend bg-gray-900">
+            <span className="input-group-text">{prepend}</span>
+          </div>
+        )}
+        <input
+          name={name}
+          type={type}
+          pattern={pattern}
+          className={["form-control", inputClassName].join(" ")}
+          value={value}
+          placeholder={placeholder}
+          onChange={onChange}
+        />
+        {append && (
+          <div className="input-group-append bg-gray-900">
+            <span className="input-group-text">{append}</span>
+          </div>
+        )}
+      </div>
+      {HasError && <span className="error-helper">{HasError}</span>}
+    </div>
+  );
 }
 
 Text.defaultProps = {
