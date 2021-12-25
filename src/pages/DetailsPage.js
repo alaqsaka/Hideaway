@@ -10,7 +10,10 @@ import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
 import Fade from "react-reveal/Fade";
 
-export default class DetailsPage extends Component {
+import { connect } from "react-redux";
+import { checkoutBooking } from "store/actions/checkout";
+
+class DetailsPage extends Component {
   componentDidMount() {
     window.title = "Details Page";
     window.scrollTo(0, 0);
@@ -40,7 +43,10 @@ export default class DetailsPage extends Component {
             </div>
             <div className="col-5">
               <Fade bottom>
-                <BookingForm itemDetails={ItemDetails}></BookingForm>
+                <BookingForm
+                  itemDetails={ItemDetails}
+                  startBooking={this.props.checkoutBooking}
+                ></BookingForm>
               </Fade>
             </div>
           </div>
@@ -53,3 +59,6 @@ export default class DetailsPage extends Component {
     );
   }
 }
+
+//                           actions apa aja  yang ingin dijalanin di halaman ini
+export default connect(null, { checkoutBooking })(DetailsPage);

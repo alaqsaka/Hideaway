@@ -8,13 +8,15 @@ import Stepper, {
   MainContent,
   Controller,
 } from "elements/Stepper";
-
+import { connect } from "react-redux";
 import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 import ItemDetails from "json/itemDetails.json";
+// import checkout from "store/reducers/checkout";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
-export default class Checkout extends Component {
+class Checkout extends Component {
   state = {
     data: {
       firstName: "",
@@ -43,10 +45,11 @@ export default class Checkout extends Component {
 
   render() {
     const { data } = this.state;
+    const { checkout } = this.props;
 
-    const checkout = {
-      duration: 3,
-    };
+    // validation if checkout is null
+    // Redirect to details page if  checkout page refreshed
+    if (!checkout) return <Redirect to={`/properties/${ItemDetails._id}`} />;
 
     const steps = {
       bookingInformation: {
@@ -121,7 +124,7 @@ export default class Checkout extends Component {
                     type="link"
                     isBlock
                     isLight
-                    href={`/properties/${checkout._id}`}
+                    href={`/properties/${ItemDetails._id}`}
                   >
                     Cancel
                   </Button>
@@ -179,3 +182,9 @@ export default class Checkout extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+});
+
+export default connect(mapStateToProps)(Checkout);
