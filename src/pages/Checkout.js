@@ -40,7 +40,7 @@ class Checkout extends Component {
 
   componentDidMount() {
     window.scroll(0, 0);
-    document.title = "Staycation | Checkout";
+    document.title = "Hideaway | Checkout";
   }
 
   render() {
