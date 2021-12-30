@@ -18,7 +18,10 @@ export default function MostPicked(props) {
                   <div className="card card-featured">
                     <div className="tag">
                       ${item.price}
-                      <span className="font-weight-light">per {item.unit}</span>
+                      <span className="font-weight-light">
+                        {" "}
+                        per {item.unit}
+                      </span>
                     </div>
                     <figure className="img-wrapper">
                       <img
@@ -37,7 +40,7 @@ export default function MostPicked(props) {
                         className="stretched-link d-block text-white"
                         href={`/properties/${item._id}`}
                       >
-                        <h5>{item.name}</h5>
+                        <h5>{item.title}</h5>
                       </Button>
                       <span>
                         {item.city}, {item.country}
