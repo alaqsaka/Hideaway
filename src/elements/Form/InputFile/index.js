@@ -1,8 +1,21 @@
 import React, { useRef, useState } from "react";
 import propTypes from "prop-types";
 
+import "./index.scss";
+
 export default function File(props) {
   const [FileName, setFileName] = useState("");
+  const {
+    placeholder,
+    name,
+    accept,
+    prepend,
+    append,
+    outerClassName,
+    inputClassName,
+  } = props;
+
+  const refInputFile = useRef(null);
 
   const onChange = (event) => {
     setFileName(event.target.value);
@@ -13,19 +26,6 @@ export default function File(props) {
       },
     });
   };
-
-  const {
-    value,
-    name,
-    accept,
-    prepend,
-    append,
-    outerClassName,
-    inputClassName,
-    placeholder,
-  } = props;
-
-  const refInputFile = useRef(null);
 
   return (
     <div className={["input-text mb-3", outerClassName].join(" ")}>
@@ -61,7 +61,7 @@ export default function File(props) {
 }
 
 File.defaultProps = {
-  placeholder: "Browse a file ... ",
+  placeholder: "Browse a file...",
 };
 
 File.propTypes = {

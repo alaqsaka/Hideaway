@@ -48,20 +48,23 @@ class Checkout extends Component {
     const { data } = this.state;
     const { checkout, page } = this.props;
     console.log(page, data);
+    console.log("ini checkout", checkout);
+    console.log("page", checkout._id);
+    const checkoutId = checkout._id;
+    console.log("checkout id", page[checkoutId].bank);
     const payload = new FormData();
     payload.append("firstName", data.firstName);
     payload.append("lastName", data.lastName);
     payload.append("email", data.email);
     payload.append("phoneNumber", data.phone);
-    payload.append("itemId", checkout._id);
+    payload.append("idItem", checkout._id);
     payload.append("duration", checkout.duration);
     payload.append("bookingStartDate", checkout.date.startDate);
     payload.append("bookingEndDate", checkout.date.endDate);
     payload.append("accountHolder", data.bankHolder);
     payload.append("bankFrom", data.bankName);
     payload.append("image", data.proofPayment[0]);
-    payload.append("bankId", checkout.bankId);
-    // payload.append("bankId", data.bankId);
+    // payload.append("bankId", 2);
     this.props.submitBooking(payload).then(() => {
       nextStep();
     });
@@ -70,7 +73,7 @@ class Checkout extends Component {
   render() {
     const { data } = this.state;
     const { checkout, page } = this.props;
-    console.log(page, data);
+    console.log("halaman", page, data);
     // validation if checkout is null
     // Redirect to details page if  checkout page refreshed
     if (!checkout) return <Redirect to={`/properties/${ItemDetails._id}`} />;
