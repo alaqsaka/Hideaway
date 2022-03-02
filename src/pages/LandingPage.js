@@ -21,10 +21,7 @@ class LandingPage extends Component {
     // Action fetchPage ditaro di sini karena hanya dipake sekali
 
     if (!this.props.page.landingPage) {
-      this.props.fetchPage(
-        `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`,
-        "landingPage"
-      );
+      this.props.fetchPage(`/landing-page`, "landingPage");
     }
   }
 
