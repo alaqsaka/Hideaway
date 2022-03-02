@@ -1,5 +1,6 @@
 import "assets/scss/style.scss";
 import Checkout from "pages/Checkout";
+import { ToastContainer, toast } from "react-toastify";
 import DetailsPage from "pages/DetailsPage";
 import Example from "pages/Example";
 import LandingPage from "pages/LandingPage";
@@ -14,6 +15,8 @@ function App() {
         <Route exac path="/example" component={Example} />
         <Route exact path="/checkout" component={Checkout} />
       </Router>
+
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
